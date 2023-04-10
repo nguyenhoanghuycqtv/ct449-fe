@@ -3,12 +3,12 @@
 <template>
   <div class="container mx-auto px-4">
     <div class="my-8">
-      <h1 class="text-3xl font-bold">Upload Chapter</h1>
+      <h1 class="text-3xl font-bold">Upload Chương</h1>
     </div>
     <upload-form
       @submit="submitForm"
       :form-data="chapterFields"
-      submit-label="Upload Chapter"
+      submit-label="Upload Chương"
     ></upload-form>
   </div>
 </template>
@@ -25,16 +25,16 @@ export default {
       chapterFields: [
         {
           id: "mangaId",
-          label: "Manga ID",
+          label: "ID Truyện",
           type: "text",
-          placeholder: "Enter Manga ID",
+          placeholder: "Nhập ID Truyện",
           value: "",
         },
         {
           id: "chapterNumber",
-          label: "Chapter Number",
+          label: "Số Chương",
           type: "text",
-          placeholder: "Enter Chapter Number",
+          placeholder: "Nhập Số Chương",
           value: "",
         },
         {

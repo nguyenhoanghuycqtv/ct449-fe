@@ -3,12 +3,12 @@
 <template>
   <div class="container mx-auto px-4">
     <div class="my-8">
-      <h1 class="text-3xl font-bold">Upload Manga</h1>
+      <h1 class="text-3xl font-bold">Upload Truyện</h1>
     </div>
     <upload-form
       @submit="submitForm"
       :form-data="mangaFields"
-      submit-label="Upload Manga"
+      submit-label="Upload Truyện"
     ></upload-form>
   </div>
 </template>
@@ -25,35 +25,35 @@ export default {
       mangaFields: [
         {
           id: "title",
-          label: "Title",
+          label: "Tên Truyện",
           type: "text",
-          placeholder: "Enter Title",
+          placeholder: "Nhập Tên Truyện",
           value: "",
         },
         {
           id: "description",
-          label: "Description",
+          label: "Mô Tả",
           type: "textarea",
-          placeholder: "Enter Description",
+          placeholder: "Nhập Mô Tả",
           value: "",
         },
         {
           id: "coverImage",
-          label: "Cover Image URL",
+          label: "Ảnh Bìa",
           type: "text",
-          placeholder: "Enter Cover Image URL",
+          placeholder: "Nhập Ảnh Bìa",
           value: "",
         },
         {
           id: "author",
-          label: "Author",
+          label: "Tác Giả",
           type: "text",
-          placeholder: "Enter Author",
+          placeholder: "Nhập Tác Giả",
           value: "",
         },
         {
           id: "status",
-          label: "Status",
+          label: "Trạng Thái",
           type: "select",
           options: [
             { label: "Ongoing", value: "ongoing" },

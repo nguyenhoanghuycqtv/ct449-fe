@@ -5,7 +5,7 @@
     <nav class="container mx-auto px-4 py-4">
       <div class="flex items-center justify-between">
         <router-link to="/" class="text-white text-4xl font-extrabold">
-          THẾ GIỚI TIÊN HIỆP
+          THẾ GIỚI TRUYỆN
         </router-link>
         <ul class="flex items-center space-x-4">
           <li>
