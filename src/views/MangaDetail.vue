@@ -16,9 +16,16 @@
         <p class="mb-4 text-lg font-extrabold">
           <strong class="font-extrabold">Tác giả:</strong> {{ manga.author }}
         </p>
+        <p class="mb-4 text-lg font-extrabold">{{ manga.description }}</p>
         <div class="bg-white p-6 shadow-lg rounded-md">
           <h3 class="text-xl font-extrabold mb-4">Danh sách chương</h3>
           <chapter-list :chapters="chapters"></chapter-list>
+          <button
+            class="bg-red-500 text-white font-semibold py-2 px-4 rounded mt-4 hover:bg-red-700"
+            @click="deleteManga"
+          >
+            Xóa truyện
+          </button>
         </div>
       </div>
     </div>
@@ -71,6 +78,26 @@ export default {
           throw new Error("Failed to fetch chapters");
         }
         this.chapters = await response.json();
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async deleteManga() {
+      try {
+        const mangaId = this.$route.params.id;
+        const response = await fetch(
+          `http://localhost:5000/api/mangas/${mangaId}`,
+          {
+            method: "DELETE",
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to delete manga");
+        }
+
+        // Redirect to the home page after successful deletion
+        this.$router.push({ name: "Home" });
       } catch (error) {
         console.error(error);
       }

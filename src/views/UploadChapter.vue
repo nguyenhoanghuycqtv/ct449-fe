@@ -57,9 +57,9 @@ export default {
         const chapterNumber = this.chapterFields.find(
           (field) => field.id === "chapterNumber"
         ).value;
-        const content = this.chapterFields
-          .find((field) => field.id === "content")
-          .value.split(",");
+        const content = this.chapterFields.find(
+          (field) => field.id === "content"
+        ).value;
 
         const response = await fetch(`http://localhost:5000/api/chapters`, {
           method: "POST",
