@@ -16,7 +16,9 @@
         <p class="mb-4 text-lg font-extrabold">
           <strong class="font-extrabold">Tác giả:</strong> {{ manga.author }}
         </p>
-        <p class="mb-4 text-lg font-extrabold">{{ manga.description }}</p>
+        <p class="mb-4 text-lg font-extrabold whitespace-pre-wrap">
+          {{ manga.description }}
+        </p>
         <div class="bg-white p-6 shadow-lg rounded-md">
           <h3 class="text-xl font-extrabold mb-4">Danh sách chương</h3>
           <chapter-list :chapters="chapters"></chapter-list>
@@ -101,6 +103,14 @@ export default {
       } catch (error) {
         console.error(error);
       }
+    },
+  },
+  watch: {
+    chapters: {
+      deep: true,
+      handler() {
+        this.fetchChapters();
+      },
     },
   },
 };
