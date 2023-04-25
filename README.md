@@ -25,7 +25,7 @@ To run the frontend code, you will need to have Node.js installed on your comput
 
 1. Make sure the backend server is running on your machine.
 2. Run the command `npm run dev` to start the development server.
-3. The server will be listening on port 3000 by default.
+3. The server will be listening on port 5173 by default.
 
 ### Folder Structure
 
