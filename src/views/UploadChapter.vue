@@ -1,20 +1,14 @@
-<!-- frontend/src/views/UploadChapter.vue -->
-
+<!-- UploadChapter.vue -->
 <template>
   <div class="container mx-auto px-4">
-    <div class="my-8">
-      <h1 class="text-3xl font-bold">Upload Chương</h1>
-    </div>
-    <upload-form
-      @submit="submitForm"
-      :form-data="chapterFields"
-      submit-label="Upload Chương"
-    ></upload-form>
+    <h1 class="text-2xl font-bold mb-6">Upload a New Chapter</h1>
+    <upload-form :form-data="formData" submit-label="Upload Chapter" @submit="submitForm"></upload-form>
   </div>
 </template>
 
 <script>
-import UploadForm from "@/components/UploadForm.vue";
+import axios from 'axios';
+import UploadForm from '@/components/UploadForm.vue';
 
 export default {
   components: {
@@ -22,65 +16,60 @@ export default {
   },
   data() {
     return {
-      chapterFields: [
+      formData: [
         {
-          id: "mangaId",
-          label: "ID Truyện",
-          type: "text",
-          placeholder: "Nhập ID Truyện",
-          value: "",
+          id: 'mangaId',
+          label: 'Manga',
+          type: 'select',
+          value: '',
+          options: [],
+          placeholder: 'Select a Manga',
         },
         {
-          id: "chapterNumber",
-          label: "Số Chương",
-          type: "text",
-          placeholder: "Nhập Số Chương",
-          value: "",
+          id: 'chapterNumber',
+          label: 'Chapter Number',
+          type: 'number',
+          value: '',
+          placeholder: 'Enter the chapter number',
         },
         {
-          id: "content",
-          label: "Nội dung",
-          type: "textarea",
-          placeholder: "Nhập nội dung",
-          value: "",
+          id: 'chapterContent',
+          label: 'Chapter Content',
+          type: 'textarea',
+          value: '',
+          placeholder: 'Enter the chapter content',
         },
       ],
     };
   },
+  async created() {
+    try {
+      const response = await axios.get('http://localhost:5000/api/mangas');
+      this.formData[0].options = response.data.map(manga => ({
+        label: manga.title,
+        value: manga._id,
+      }));
+    } catch (error) {
+      console.error('Error fetching mangas:', error);
+    }
+  },
   methods: {
-    async submitForm(event) {
-      event.preventDefault();
-      try {
-        const mangaId = this.chapterFields.find(
-          (field) => field.id === "mangaId"
-        ).value;
-        const chapterNumber = this.chapterFields.find(
-          (field) => field.id === "chapterNumber"
-        ).value;
-        const content = this.chapterFields.find(
-          (field) => field.id === "content"
-        ).value;
+    submitForm(formData) {
+      const chapterData = {
+        mangaId: formData.find(field => field.id === 'mangaId').value,
+        chapterNumber: formData.find(field => field.id === 'chapterNumber').value,
+        content: formData.find(field => field.id === 'chapterContent').value,
+      };
 
-        const response = await fetch(`http://localhost:5000/api/chapters`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            mangaId,
-            chapterNumber,
-            content,
-          }),
+      // Gửi dữ liệu chương đến API của bạn để lưu vào cơ sở dữ liệu
+      axios
+        .post('http://localhost:5000/api/chapters', chapterData)
+        .then(response => {
+          console.log('Chapter uploaded:', response.data);
+        })
+        .catch(error => {
+          console.error('Error uploading chapter:', error);
         });
-
-        if (!response.ok) {
-          throw new Error("Failed to upload chapter");
-        }
-
-        this.$router.push({ name: "MangaDetail", params: { id: mangaId } });
-      } catch (error) {
-        console.error(error);
-      }
     },
   },
 };
