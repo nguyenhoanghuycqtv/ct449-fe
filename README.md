@@ -1,22 +1,19 @@
+# MEVN Frontend Repository Readme
 
-
-# MEVN Backend Repository Readme
-
-This repository contains the backend code for a project that uses the MEVN stack (MongoDB, Express, Vue, Node.js). The purpose of this repository is to handle server-side requests and database operations. 
+This repository contains the frontend code for a project that uses the MEVN stack (MongoDB, Express, Vue, Node.js). The purpose of this repository is to create the user interface for the application.
 
 ## Technologies Used
 
-- MongoDB: a NoSQL database used to store and manage data.
-- Express: a backend web framework used to handle HTTP requests.
 - Vue: a frontend JavaScript framework used to create user interfaces.
-- Node.js: a server-side JavaScript runtime used to run JavaScript code outside of a web browser.
+- Vue Router: a routing library used to handle navigation between pages.
+- Axios: a library used to make HTTP requests from the frontend.
 - Tailwind CSS: a utility-first CSS framework used to style the frontend.
 
 ## Getting Started
 
 ### Prerequisites
 
-To run the backend code, you will need to have Node.js and MongoDB installed on your computer.
+To run the frontend code, you will need to have Node.js installed on your computer.
 
 ### Installation
 
@@ -26,32 +23,47 @@ To run the backend code, you will need to have Node.js and MongoDB installed on 
 
 ### Usage
 
-1. Make sure MongoDB is running on your machine.
-2. Run the command `npm start` to start the server.
+1. Make sure the backend server is running on your machine.
+2. Run the command `npm run dev` to start the development server.
 3. The server will be listening on port 3000 by default.
 
 ### Folder Structure
 
-- `src/`: contains the source code for the backend.
-  - `config/`: contains configuration files for the server.
-  - `controllers/`: contains controller functions that handle HTTP requests.
-  - `models/`: contains database models used to interact with MongoDB.
-  - `routes/`: contains route definitions for the server.
-- `test/`: contains unit tests for the backend code.
+- `src/`: contains the source code for the frontend.
+  - `assets/`: contains images, fonts, and other assets used in the application.
+  - `components/`: contains reusable components used throughout the application.
+  - `router.js`: contains the Vue Router configuration for the application.
+  - `views/`: contains the top-level views for each page of the application.
+  - `App.vue`: the root component of the application.
+  - `main.js`: the entry point for the application.
 
-### Contributing
+### Available Scripts
 
-To contribute to this repository, please follow these steps:
+In the project directory, you can run:
 
-1. Fork this repository.
-2. Create a new branch with your changes: `git checkout -b my-branch`.
-3. Commit your changes: `git commit -am 'Add some feature'`.
-4. Push to the branch: `git push origin my-branch`.
-5. Create a new pull request.
+#### `npm run dev`
+
+Runs the app in the development mode.<br />
+Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
+
+#### `npm run build`
+
+Builds the app for production to the `dist` folder.<br />
+It correctly bundles Vue in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
+
+#### `npm run preview`
+
+Serves the production build from the `dist` folder using Vite's built-in preview server.
 
 ### Credits
 
-This project was created by Nguyen Hoang Huy. The frontend repository can be found at https://github.com/nguyenhoanghuycqtv/ct449-fe.
+This project was created by Nguyen Hoang Huy. The backend repository can be found at https://github.com/nguyenhoanghuycqtv/social-network-be.
 
 ### License
 
