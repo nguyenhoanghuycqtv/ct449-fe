@@ -1,29 +1,58 @@
-# client
 
-This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
+# MEVN Backend Repository Readme
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+This repository contains the backend code for a project that uses the MEVN stack (MongoDB, Express, Vue, Node.js). The purpose of this repository is to handle server-side requests and database operations. 
 
-## Customize configuration
+## Technologies Used
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- MongoDB: a NoSQL database used to store and manage data.
+- Express: a backend web framework used to handle HTTP requests.
+- Vue: a frontend JavaScript framework used to create user interfaces.
+- Node.js: a server-side JavaScript runtime used to run JavaScript code outside of a web browser.
+- Tailwind CSS: a utility-first CSS framework used to style the frontend.
 
-## Project Setup
+## Getting Started
 
-```sh
-npm install
-```
+### Prerequisites
 
-### Compile and Hot-Reload for Development
+To run the backend code, you will need to have Node.js and MongoDB installed on your computer.
 
-```sh
-npm run dev
-```
+### Installation
 
-### Compile and Minify for Production
+1. Clone this repository to your local machine.
+2. Navigate to the root directory of the project.
+3. Run the command `npm install` to install all dependencies.
 
-```sh
-npm run build
-```
+### Usage
+
+1. Make sure MongoDB is running on your machine.
+2. Run the command `npm start` to start the server.
+3. The server will be listening on port 3000 by default.
+
+### Folder Structure
+
+- `src/`: contains the source code for the backend.
+  - `config/`: contains configuration files for the server.
+  - `controllers/`: contains controller functions that handle HTTP requests.
+  - `models/`: contains database models used to interact with MongoDB.
+  - `routes/`: contains route definitions for the server.
+- `test/`: contains unit tests for the backend code.
+
+### Contributing
+
+To contribute to this repository, please follow these steps:
+
+1. Fork this repository.
+2. Create a new branch with your changes: `git checkout -b my-branch`.
+3. Commit your changes: `git commit -am 'Add some feature'`.
+4. Push to the branch: `git push origin my-branch`.
+5. Create a new pull request.
+
+### Credits
+
+This project was created by [your name]. The frontend repository can be found at https://github.com/nguyenhoanghuycqtv/ct449-fe.
+
+### License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
