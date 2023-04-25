@@ -51,7 +51,7 @@ To contribute to this repository, please follow these steps:
 
 ### Credits
 
-This project was created by [your name]. The frontend repository can be found at https://github.com/nguyenhoanghuycqtv/ct449-fe.
+This project was created by Nguyen Hoang Huy. The frontend repository can be found at https://github.com/nguyenhoanghuycqtv/ct449-fe.
 
 ### License
 
